@@ -3,8 +3,8 @@ import shlex
 import ssh
 import directorymonitor
 
-_default_rsync_bin_path = '/usr/local/bin/rsync'
-_default_rsync_options = '-Ccrlptv --exclude=/build*/ --exclude=/bin/ --exclude=.DS_Store --exclude=*.pyc --include=.git --del'
+_default_rsync_bin_path = '/usr/bin/rsync'
+_default_rsync_options = '-crlptv --exclude=/build*/ --exclude=/bin/ --exclude=.DS_Store --exclude=*.pyc --include=.git --del'
 
 def run_rsync(localpath, remote_config, main, output=None):
     sshconn = ssh.SSHConnectionDB().get(remote_config['remote_name'])
