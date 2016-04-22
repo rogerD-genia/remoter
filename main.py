@@ -6,14 +6,20 @@ import Queue
 
 # create the remote connection
 host_db = ssh.SSHConnectionDB()
-host_db.create_connection('drosophila', 'drosophila.nvidia.com')
+host_db.create_connection('helix', 'helix')
 
 # create the projects
 project_db = project.SynchronizedProjectDB()
-project_db.create_project('nvbio', '/Users/nsubtil/nvbio')
+project_db.create_project('snail', '/Users/dettlofr/Projects/snail')
+project_db.create_project('snail-tools', '/Users/dettlofr/Projects/snail-tools')
+project_db.create_project('ac-analysis', '/Users/dettlofr/Projects/ac-analysis')
+project_db.create_project('data-handling', '/Users/dettlofr/Projects/data-handling')
 
 # add remotes to each project
-project_db.get('nvbio').add_remote_build('drosophila', '/Users/nsubtil/nvbio', auto_update=True)
+project_db.get('snail').add_remote_build('helix', '/home/rogerd/Projects/snail', auto_update=True)
+project_db.get('snail-tools').add_remote_build('helix', '/home/rogerd/Projects/snail-tools', auto_update=True)
+project_db.get('ac-analysis').add_remote_build('helix', '/home/rogerd/Projects/ac-analysis', auto_update=True)
+project_db.get('data-handling').add_remote_build('helix', '/home/rogerd/Projects/data-handling', auto_update=True)
 
 class Main:
     def __init__(self):
