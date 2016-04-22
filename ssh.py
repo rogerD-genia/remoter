@@ -4,7 +4,7 @@ import shlex
 import signal
 import select
 
-_default_ssh_bin_path = "/usr/local/bin/ssh"
+_default_ssh_bin_path = "/usr/bin/ssh"
 _default_ssh_options = {
     'ClearAllForwardings': 'yes',
     'Compression': 'yes',
